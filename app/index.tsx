@@ -1,33 +1,22 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
-StyleSheet;
+import { Video, ResizeMode } from "expo-av";
+
 const index = () => {
   return (
-    <View>
-      <Text>index</Text>
-      <View style={styles.buttons}>
-        <Link
-          href={"/screens/home"}
-          style={{ flex: 1, backgroundColor: "black" }}
-          asChild
-        >
-          <TouchableOpacity>
-            <Text style={{ color: "white", fontSize: 22, fontWeight: "500" }}>
-              Log in
-            </Text>
-          </TouchableOpacity>
-        </Link>
-        <Link
-          href={"/signup"}
-          style={{ flex: 1, backgroundColor: "#fff" }}
-          asChild
-        >
-          <TouchableOpacity>
-            <Text style={{ fontSize: 22, fontWeight: "500" }}>Sign up</Text>
-          </TouchableOpacity>
-        </Link>
-      </View>
+    <View style={styles.container}>
+      {/* <Text>hello</Text> */}
+      <Video
+        style={styles.video}
+        source={{
+          uri: "https://videos.pexels.com/video-files/5717010/5717010-uhd_1440_2560_25fps.mp4",
+        }}
+        shouldPlay
+        isLooping={true}
+        resizeMode={ResizeMode.COVER}
+        //  resizeMode
+      />
     </View>
   );
 };
@@ -35,7 +24,6 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
   },
   video: {
     width: "100%",
