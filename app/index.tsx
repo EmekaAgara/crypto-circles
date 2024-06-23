@@ -6,7 +6,6 @@ import { Video, ResizeMode } from "expo-av";
 const index = () => {
   return (
     <View style={styles.container}>
-      {/* <Text>hello</Text> */}
       <Video
         style={styles.video}
         source={{
@@ -17,6 +16,12 @@ const index = () => {
         resizeMode={ResizeMode.COVER}
         //  resizeMode
       />
+      <View style={styles.textContainer}>
+        <Text style={styles.mainText}>Csave</Text>
+        <Text style={styles.subText}>
+          Group saving circles made easy with crypto currency
+        </Text>
+      </View>
     </View>
   );
 };
@@ -24,16 +29,29 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // paddingHorizontal: 20,
   },
   video: {
     width: "100%",
     height: "100%",
     position: "absolute",
   },
-  header: {
+  textContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 90,
+  },
+  mainText: {
     fontSize: 36,
-    fontWeight: "900",
+    fontWeight: "700",
     textTransform: "uppercase",
+    color: "white",
+  },
+  subText: {
+    fontSize: 16,
+    // fontWeight: "700",
+    // textTransform: "uppercase",
     color: "white",
   },
   buttons: {
