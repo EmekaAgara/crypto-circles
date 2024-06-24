@@ -19,7 +19,6 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 // 1. Get projectId from https://cloud.walletconnect.com
@@ -53,6 +52,15 @@ createWeb3Modal({
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+// const {address,isConnected,isDisconnected,isReconnecting } = useAccount({
+//   onConnect({ address, connector, isReconnected }) {
+//     console.log("Connected", { address, connector, isReconnected });
+//   },
+//   onDisconnect() {
+//     console.log("Disconnected");
+//   },
+// });
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -75,6 +83,10 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          {/* <Stack.Screen
+            name="(tabs)/explore"
+            options={{ headerShown: false }}
+          /> */}
           <Stack.Screen name="+not-found" />
         </Stack>
       </ThemeProvider>
