@@ -1,47 +1,42 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import { Video, ResizeMode } from "expo-av";
 import { W3mButton } from "@web3modal/wagmi-react-native";
 import SlidingTexts from "@/components/SlidingTexts";
 import { useAccount } from "wagmi";
 import { Link, Slot, useRouter } from "expo-router";
-// import { useRouter } from 'your-router-hook'; // Replace with the actual import
-import { useFocusEffect } from "@react-navigation/native";
 
 const index = () => {
   // navigate when a wallet is connected
   const router = useRouter();
-  const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
-  <Slot />;
+  function navigate() {
+    const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate();
-    }, 0); // No delay, execute immediately after screen loads
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const navigate = useCallback(() => {
     if (isConnecting) {
       console.log("connecting");
     }
     if (isDisconnected) {
       console.log("Disconnected");
-      router.push({ pathname: "connect" });
+      router.push({ pathname: "/index" });
     }
     if (isConnected) {
       console.log("connected");
       router.push({ pathname: "(tabs)" });
     }
-  }, [isConnecting, isDisconnected, isConnected, router]);
+    // return <Text>{address}</Text>
+    return console.log({ address });
+  }
+  navigate();
 
-  useFocusEffect(
-    useCallback(() => {
-      navigate();
-    }, [navigate])
-  );
+  // const account = useAccount({
+  //   onConnect({ address, connector, isReconnected }) {
+  //     console.log("Connected", { address, connector, isReconnected });
+  //   },
+  //   onDisconnect() {
+  //     console.log("Disconnected");
+  //   },
+  // });
 
   return (
     <View style={styles.container}>

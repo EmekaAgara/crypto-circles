@@ -1,5 +1,5 @@
 import "@walletconnect/react-native-compat";
-import { WagmiConfig } from "wagmi";
+import { WagmiConfig, useAccount } from "wagmi";
 import { goerli, mainnet, polygon, arbitrum, sepolia } from "viem/chains";
 import {
   createWeb3Modal,
@@ -15,7 +15,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
@@ -61,11 +61,28 @@ SplashScreen.preventAutoHideAsync();
 //   },
 // });
 
+// function navigate() {
+//   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
+
+//   if (isConnecting) {
+//     console.log("connecting");
+//   }
+//   if (isDisconnected) {
+//     console.log("Disconnected");
+//   }
+//   if (isConnected) {
+//     console.log("connected");
+//   }
+//   // return <Text>{address}</Text>
+//   return console.log({ address });
+// }
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
+  // <Slot />;
 
   useEffect(() => {
     if (loaded) {
@@ -82,6 +99,7 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="connect" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           {/* <Stack.Screen
             name="(tabs)/explore"
