@@ -9,7 +9,7 @@ const index = () => {
       <Video
         style={styles.video}
         source={{
-          uri: "https://videos.pexels.com/video-files/5717010/5717010-uhd_1440_2560_25fps.mp4",
+          uri: "https://videos.pexels.com/video-files/7660180/7660180-uhd_1440_2560_25fps.mp4",
         }}
         shouldPlay
         isLooping={true}
@@ -19,7 +19,7 @@ const index = () => {
       <View style={styles.textContainer}>
         <Text style={styles.mainText}>Csave</Text>
         <Text style={styles.subText}>
-          Group saving circles made easy with crypto currency
+          Group saving circles made easy with crypto currency on Csave
         </Text>
       </View>
     </View>
@@ -40,7 +40,10 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 90,
+    paddingBottom: 190,
+    flex: 1,
+    backgroundColor: "#0000005c",
+    paddingHorizontal: 20,
   },
   mainText: {
     fontSize: 36,
@@ -52,6 +55,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     // fontWeight: "700",
     // textTransform: "uppercase",
+    marginTop: 15,
+    textAlign: "center",
     color: "white",
   },
   buttons: {
