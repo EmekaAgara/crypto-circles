@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { Video, ResizeMode } from "expo-av";
+import { W3mButton } from "@web3modal/wagmi-react-native";
 
 const index = () => {
   return (
@@ -21,6 +22,8 @@ const index = () => {
         <Text style={styles.subText}>
           Group saving circles made easy with crypto currency on Csave
         </Text>
+
+        <W3mButton balance="show" />
       </View>
     </View>
   );
