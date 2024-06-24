@@ -1,4 +1,11 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Pressable,
+  Image,
+} from "react-native";
 import React, { useCallback, useEffect } from "react";
 import { Video, ResizeMode } from "expo-av";
 import { W3mButton } from "@web3modal/wagmi-react-native";
@@ -7,8 +14,11 @@ import { useAccount } from "wagmi";
 import { Link, Slot, useRouter } from "expo-router";
 // import { useRouter } from 'your-router-hook'; // Replace with the actual import
 import { useFocusEffect } from "@react-navigation/native";
+import { useWeb3Modal } from "@web3modal/wagmi-react-native";
 
 const index = () => {
+  const { open } = useWeb3Modal();
+
   // navigate when a wallet is connected
   const router = useRouter();
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
@@ -29,11 +39,11 @@ const index = () => {
     }
     if (isDisconnected) {
       console.log("Disconnected");
-      router.push({ pathname: "connect" });
+      // router.push({ pathname: "connect" });
     }
     if (isConnected) {
       console.log("connected");
-      router.push({ pathname: "(tabs)" });
+      // router.push({ pathname: "(tabs)" });
     }
   }, [isConnecting, isDisconnected, isConnected, router]);
 
@@ -55,16 +65,24 @@ const index = () => {
         resizeMode={ResizeMode.COVER}
         //  resizeMode
       />
-      <Text style={styles.mainText}>Csave</Text>
+      <Image
+        style={styles.logo}
+        source={require("../assets/images/react-logo.png")}
+      />
+
       <View style={styles.textContainer}>
-        <Text style={styles.mainText}>Csave</Text>
+        <Text style={styles.mainText}>Ccircles</Text>
 
         {/* <SlidingTexts /> */}
 
         <SlidingTexts />
-        <W3mButton balance="show" />
+        {/* <W3mButton balance="show" /> */}
+        <TouchableOpacity onPress={() => open()} style={styles.ButtonContainer}>
+          <Text style={styles.ButtonText}>Connect Wallet</Text>
+        </TouchableOpacity>
         <Text style={styles.subText}>
-          Group saving circles made easy with crypto currency on Csave
+          Group saving circles with friedns and family, made easy with crypto
+          currency on Ccircles app
         </Text>
       </View>
     </View>
@@ -75,6 +93,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // paddingHorizontal: 20,
+  },
+  w3mButton: {
+    marginLeft: "auto",
+    padding: 50,
+    color: "white",
   },
   video: {
     width: "100%",
@@ -91,18 +114,37 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   mainText: {
-    fontSize: 36,
-    fontWeight: "700",
-    textTransform: "uppercase",
+    fontSize: 34,
+    fontWeight: "600",
     color: "white",
   },
   subText: {
     fontSize: 12,
-    // fontWeight: "700",
-    // textTransform: "uppercase",
     marginTop: 15,
     textAlign: "center",
     color: "white",
+  },
+  ButtonContainer: {
+    backgroundColor: "#0067f3",
+    width: "100%",
+    alignSelf: "center",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+
+  ButtonText: {
+    fontSize: 14,
+    color: "#fff",
+    fontWeight: "600",
+    alignSelf: "center",
+    textTransform: "uppercase",
+  },
+  logo: {
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: "35%",
+    zIndex: 1,
   },
 });
 
