@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     justifyContent: "flex-start",
     // paddingTop: "150%",
-    paddingTop: deviceHeight * 0.69,
+    paddingTop: deviceHeight * 0.75,
     // marginBottom: deviceHeight * 0.09,
     flex: 1,
     backgroundColor: "#0000005c",
