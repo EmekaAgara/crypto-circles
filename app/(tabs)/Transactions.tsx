@@ -8,7 +8,6 @@ import {
   Text,
   FlatList,
   ImageBackground,
-  SafeAreaView,
 } from "react-native";
 
 import { Collapsible } from "@/components/Collapsible";
@@ -19,14 +18,13 @@ import { ThemedView } from "@/components/ThemedView";
 import { useRouter } from "expo-router";
 import cryptocurrencies from "@/assets/data/cryptocurrencies.json";
 import CoinItem from "@/components/CoinItem";
-import { W3mAccountButton, W3mButton } from "@web3modal/wagmi-react-native";
 
 const data = [
   {
     id: "1",
     title: "$5,000,000",
-    description: "Total Cicle Savings ⭕️ ",
-    account: "0020",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
     name: "John James",
     backgroundImage: require("@/assets/images/card9.png"),
     screen: "Development",
@@ -41,29 +39,92 @@ const data = [
     backgroundImage: require("@/assets/images/card7.png"),
     screen: "Development",
   },
+  {
+    id: "3",
+    title: "$5,000,000",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
+    name: "John James",
+    backgroundImage: require("@/assets/images/card11.png"),
+    screen: "Development",
+  },
+
+  {
+    id: "4",
+    title: "$5,000,000",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
+    name: "John James",
+    backgroundImage: require("@/assets/images/card4.png"),
+    screen: "Development",
+  },
+  {
+    id: "5",
+    title: "$5,000,000",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
+    name: "John James",
+    backgroundImage: require("@/assets/images/card5.png"),
+    screen: "Development",
+  },
+
+  {
+    id: "6",
+    title: "$5,000,000",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
+    name: "John James",
+    backgroundImage: require("@/assets/images/card6.png"),
+    screen: "Development",
+  },
+  {
+    id: "7",
+    title: "$5,000,000",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
+    name: "John James",
+    backgroundImage: require("@/assets/images/card2.png"),
+    screen: "Development",
+  },
+
+  {
+    id: "8",
+    title: "$5,000,000",
+    description: "Total Savings",
+    account: "0000 0000 0000 0000",
+    name: "John James",
+    backgroundImage: require("@/assets/images/card12.png"),
+    screen: "Development",
+  },
 ];
 const CardData = [
   {
-    id: "2",
+    id: "3",
     image: require("@/assets/images/card12.png"),
-    description: "⭕️ Create a Circle",
+    description: "Trade",
     screen: "Development",
   },
   {
     id: "4",
     image: require("@/assets/images/card12.png"),
-    description: " 💰 Make a Deposit",
+    description: "Transfer",
     screen: "Development",
   },
   {
-    id: "3",
+    id: "5",
     image: require("@/assets/images/card12.png"),
-    description: "🚀 Explore Saving Circles",
+    description: "Beneficiaries",
+    screen: "Development",
+  },
+  {
+    id: "6",
+    image: require("@/assets/images/card12.png"),
+    description: "QR Code",
     screen: "Development",
   },
 ];
 
-export default function index() {
+export default function explore() {
   const router = useRouter();
 
   const handlePress = () => {
@@ -81,16 +142,11 @@ export default function index() {
   const location = "Lagos";
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.WalletConnect}>
-        <W3mButton balance="show" size="md" />
-      </View>
+    <View style={styles.container}>
       <View style={styles.HeaderContainer}>
         <TouchableOpacity onPress={handlePress}>
           <Text style={styles.HelloText}>Hello John</Text>
-          <Text style={styles.descText1}>
-            Explore crypto saving circles ⭕️
-          </Text>
+          <Text style={styles.descText1}>Welcome to Stride 👋 </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
@@ -109,27 +165,29 @@ export default function index() {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={cardPress}>
-            <View style={styles.ButtonContainer}>
+            <ImageBackground
+              source={item.backgroundImage}
+              style={styles.ButtonContainer}
+            >
               <View style={styles.profileContainer}>
                 <Text style={styles.descText}>{item.description}</Text>
-                <Text style={styles.acctText}>{item.account}</Text>
-                {/* <Text style={styles.nameText}>{item.name}</Text> */}
                 <Text style={styles.mainText}>{item.title}</Text>
+                <Text style={styles.acctText}>{item.account}</Text>
+                <Text style={styles.nameText}>{item.name}</Text>
               </View>
               <View style={styles.profileContainer}>
                 <Image
-                  source={require("@/assets/images/Chips.png")}
+                  source={require("@/assets/images/profile.png")}
                   style={styles.chipimg}
                 />
               </View>
-            </View>
+            </ImageBackground>
           </TouchableOpacity>
         )}
       />
 
-      {/* <Text style={styles.descText2}>Explore 🚀</Text> */}
+      <Text style={styles.descText2}>Explore 🚀</Text>
       <FlatList
-        style={styles.ServiceslistContainer}
         horizontal
         pagingEnabled
         data={CardData}
@@ -141,6 +199,14 @@ export default function index() {
             style={styles.ServicesContainer}
           >
             <View style={styles.profileContainer}>
+              <View>
+                {/* <Lottie
+                  source={item.image}
+                  autoPlay
+                  loop
+                  style={styles.serviceImg}
+                /> */}
+              </View>
               <Text style={styles.serviceText}>{item.description}</Text>
             </View>
           </TouchableOpacity>
@@ -149,19 +215,19 @@ export default function index() {
 
       <Text style={styles.descText2}>Recommended</Text>
 
-      {/* <FlatList
+      <FlatList
         showsVerticalScrollIndicator={false}
         data={cryptocurrencies}
         renderItem={({ item }) => <CoinItem marketCoin={item} />}
-      /> */}
-    </SafeAreaView>
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   HeaderContainer: {
     display: "flex",
-    paddingHorizontal: 10,
+
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -188,9 +254,6 @@ const styles = StyleSheet.create({
     width: 50,
     resizeMode: "contain",
   },
-  ServiceslistContainer: {
-    paddingLeft: 15,
-  },
 
   chipimg: {
     marginLeft: 4,
@@ -200,23 +263,20 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    backgroundColor: "black",
+    backgroundColor: "#000",
     justifyContent: "center",
-    paddingBottom: 20,
-    paddingTop: 40,
-    // padding: 60,
-    // marginHorizontal: 10,
+    paddingBottom: 30,
+    paddingTop: 120,
+    padding: 6,
     paddingHorizontal: 15,
   },
-  WalletConnect: {
-    paddingBottom: 20,
-  },
+
   HelloText: {
     color: "white",
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: "600",
     textAlign: "left",
-    paddingBottom: 5,
+    paddingBottom: 10,
   },
 
   cardImage: {
@@ -232,9 +292,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "700",
     textAlign: "left",
-    // paddingBottom: 10,
+    paddingBottom: 10,
     paddingLeft: 0,
-    paddingTop: 40,
+    paddingTop: 20,
   },
 
   descText: {
@@ -284,14 +344,12 @@ const styles = StyleSheet.create({
   ButtonContainer: {
     backgroundColor: "#141518",
     flexDirection: "row",
-    padding: 27,
-    marginBottom: 25,
-    marginRight: 10,
-    // paddingBottom: 20,
-    paddingRight: 120,
-    paddingVertical: 40,
-    borderRadius: 10,
-    marginLeft: 10,
+    padding: 9,
+    marginBottom: 16,
+    marginRight: 12,
+    paddingRight: 23,
+    paddingVertical: 20,
+    borderRadius: 6,
   },
 
   CardContainer: {
@@ -313,18 +371,25 @@ const styles = StyleSheet.create({
   ServicesContainer: {
     backgroundColor: "#141518",
     flexDirection: "row",
-    // padding: 12,
-    // marginBottom: 16,
+    padding: 9,
+    marginBottom: 16,
     marginRight: 12,
     paddingRight: 20,
-    height: 60,
-    overflow: "hidden",
 
     borderRadius: 6,
   },
+  serviceImg: {
+    height: 55,
+    width: 35,
+    resizeMode: "contain",
+    alignSelf: "center",
+  },
   serviceText: {
     color: "#898A8B",
-    fontSize: 14,
-    fontWeight: "500",
+    fontSize: 12,
+    fontWeight: "400",
+    textAlign: "center",
+    paddingLeft: 0,
+    paddingBottom: 5,
   },
 });
