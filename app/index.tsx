@@ -64,7 +64,7 @@ const index = () => {
         </TouchableOpacity>
         <Text style={styles.subText}>
           Group saving circles with friedns and family, made easy with crypto
-          currency on Ccircles app
+          currency on Ccircles appp
         </Text>
       </View>
     </View>
