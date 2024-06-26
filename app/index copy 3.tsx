@@ -5,31 +5,53 @@ import {
   StyleSheet,
   Pressable,
   Image,
-  Dimensions,
 } from "react-native";
 import React, { useCallback, useEffect } from "react";
 import { Video, ResizeMode } from "expo-av";
 import { W3mButton } from "@web3modal/wagmi-react-native";
 import SlidingTexts from "@/components/SlidingTexts";
 import { useAccount } from "wagmi";
-import { Link, Slot, useNavigation, useRouter } from "expo-router";
+import { Link, Slot, useRouter } from "expo-router";
 // import { useRouter } from 'your-router-hook'; // Replace with the actual import
 import { useFocusEffect } from "@react-navigation/native";
 import { useWeb3Modal } from "@web3modal/wagmi-react-native";
 
-const { height: deviceHeight } = Dimensions.get("window");
-
 const index = () => {
-  const router = useRouter();
-
   const { open } = useWeb3Modal();
 
-  const onConnectPressed = () => {
-    open();
-    router.push({ pathname: "(tabs)" });
+  // navigate when a wallet is connected
+  const router = useRouter();
+  const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
-    // navigation.navigate("SignupScreen");
-  };
+  <Slot />;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate();
+    }, 0); // No delay, execute immediately after screen loads
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const navigate = useCallback(() => {
+    if (isConnecting) {
+      console.log("connecting");
+    }
+    if (isDisconnected) {
+      console.log("Disconnected");
+      // router.push({ pathname: "connect" });
+    }
+    if (isConnected) {
+      console.log("connected");
+      // router.push({ pathname: "(tabs)" });
+    }
+  }, [isConnecting, isDisconnected, isConnected, router]);
+
+  useFocusEffect(
+    useCallback(() => {
+      navigate();
+    }, [navigate])
+  );
 
   return (
     <View style={styles.container}>
@@ -55,12 +77,8 @@ const index = () => {
 
         <SlidingTexts />
         {/* <W3mButton balance="show" /> */}
-        {/* <TouchableOpacity onPress={() => open()} style={styles.ButtonContainer}> */}
-        <TouchableOpacity
-          onPress={onConnectPressed}
-          style={styles.ButtonContainer}
-        >
-          <Text style={styles.ButtonText}>Get Started</Text>
+        <TouchableOpacity onPress={() => open()} style={styles.ButtonContainer}>
+          <Text style={styles.ButtonText}>Connect Wallet</Text>
         </TouchableOpacity>
         <Text style={styles.subText}>
           Group saving circles with friedns and family, made easy with crypto
@@ -90,14 +108,11 @@ const styles = StyleSheet.create({
     display: "flex",
     // alignItems: "center",
     justifyContent: "flex-start",
-    // paddingTop: "150%",
-    paddingTop: deviceHeight * 0.69,
-    // marginBottom: deviceHeight * 0.09,
+    paddingTop: "155%",
     flex: 1,
     backgroundColor: "#0000005c",
     paddingHorizontal: 20,
   },
-
   mainText: {
     fontSize: 28,
     fontWeight: "600",
@@ -105,7 +120,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: 12,
-    marginTop: 10,
+    marginTop: 15,
     textAlign: "center",
     color: "white",
   },
@@ -128,11 +143,8 @@ const styles = StyleSheet.create({
   logo: {
     position: "absolute",
     alignSelf: "center",
-    // marginTop: "35%",
+    marginTop: "35%",
     zIndex: 1,
-    width: "50%",
-    height: "50%",
-    resizeMode: "contain",
   },
 });
 
