@@ -13,6 +13,14 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
+        tabBarStyle: {
+          // height: 90,
+          // borderWidth: 1,
+          // borderRadius: 20,
+          // borderColor: Colors.orange.default,
+          // borderTopColor: Colors.orange.default,
+          backgroundColor: "black",
+        },
       }}
     >
       <Tabs.Screen
@@ -33,36 +41,36 @@ export default function TabLayout() {
           title: "Explore",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "rocket" : "rocket-outline"}
               color={color}
             />
           ),
         }}
       />
-      {/* <Tabs.Screen
-        name="TransactionDetails"
+      <Tabs.Screen
+        name="My circles"
         options={{
-          title: "Transaction Details",
+          title: "My Circles",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "people-circle" : "people-circle-outline"}
               color={color}
             />
           ),
         }}
-      /> */}
-      {/* <Tabs.Screen
-        name="explore"
+      />
+      <Tabs.Screen
+        name="Transactions"
         options={{
-          title: "Explore",
+          title: "Transactions",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "code-slash" : "code-slash-outline"}
+              name={focused ? "document-text" : "document-text-outline"}
               color={color}
             />
           ),
         }}
-      /> */}
+      />
     </Tabs>
   );
 }

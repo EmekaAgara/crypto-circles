@@ -1,6 +1,14 @@
 // app/details/[circleId].tsx
 import React from "react";
-import { View, Text, Image, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Button,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 
 type SavingCircle = {
@@ -29,6 +37,12 @@ const savingCircles: SavingCircle[] = [
 ];
 
 export default function CircleDetails() {
+  const onConnectPressed = () => {
+    // open();
+    router.push({ pathname: "(tabs)" });
+
+    // navigation.navigate("SignupScreen");
+  };
   const { circleId } = useLocalSearchParams<{ circleId: string }>();
   const router = useRouter();
 
@@ -54,22 +68,40 @@ export default function CircleDetails() {
         Status: {circle.isFull ? "Full" : "Available"}
       </Text>
       {!circle.isFull && (
-        <Button title="Join Circle" onPress={() => {}} color="#1E88E5" />
+        <TouchableOpacity
+          onPress={onConnectPressed}
+          style={styles.ButtonContainer}
+        >
+          <Text style={styles.ButtonText}>Join Circle</Text>
+        </TouchableOpacity>
       )}
-      <Button
-        title="Back to List"
-        onPress={() => router.back()}
-        color="#888888"
-      />
+      <Button title="Go Back" onPress={() => router.back()} color="#888888" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  ButtonContainer: {
+    backgroundColor: "#0067f3",
+    width: "100%",
+    alignSelf: "center",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+
+  ButtonText: {
+    fontSize: 14,
+    color: "#fff",
+    fontWeight: "600",
+    alignSelf: "center",
+    textTransform: "uppercase",
+  },
   container: {
     flex: 1,
     backgroundColor: "#121212",
     padding: 20,
+    marginTop: 20,
   },
   image: {
     width: "100%",

@@ -52,7 +52,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 
 const styles = StyleSheet.create({
   list: {
-    backgroundColor: "#141518",
+    backgroundColor: "",
   },
   transactionContainer: {
     flexDirection: "row",
