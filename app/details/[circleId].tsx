@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
+import MintSection from "@/components/MintSsection";
 
 type SavingCircle = {
   id: string;
@@ -140,14 +141,21 @@ export default function CircleDetails() {
         Status: {circle.isFull ? "Full" : "Available"}
       </Text>
       {!circle.isFull && (
-        <TouchableOpacity
-          onPress={onConnectPressed}
-          style={styles.ButtonContainer}
-        >
-          <Text style={styles.ButtonText}>Join Circle</Text>
-        </TouchableOpacity>
+        // <TouchableOpacity
+        //   onPress={onConnectPressed}
+        //   style={styles.ButtonContainer}
+        // >
+        //   <Text style={styles.ButtonText}>Join Circle</Text>
+        // </TouchableOpacity>
+        <MintSection />
       )}
-      <Button title="Go Back" onPress={() => router.back()} color="#888888" />
+
+      <TouchableOpacity
+        onPress={() => router.back()}
+        style={styles.ButtonContainer2}
+      >
+        <Text style={styles.ButtonText}>Go Back</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -160,6 +168,15 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     alignItems: "center",
+  },
+  ButtonContainer2: {
+    backgroundColor: "#e63b60",
+    width: "100%",
+    alignSelf: "center",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 10,
   },
 
   ButtonText: {
