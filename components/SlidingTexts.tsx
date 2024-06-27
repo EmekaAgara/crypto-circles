@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Animated, Easing } from "react-native";
 
 const TEXTS = [
-  "1we can use the Animated API to animate both the opacity and the position of the text.",
-  "2we can use the Animated API to animate both the opacity and the position of the text.",
-  "3we can use the Animated API to animate both the opacity and the position of the text.",
+  "You can create and join active cryptocurrency saving circles to invest together",
+  "Save and invest cryptocurrency collectively by forming or joining savings circles",
+  "Facilitating secure collective saving and investing in cryptocurrency",
 ];
 
 export default function SlidingTexts() {

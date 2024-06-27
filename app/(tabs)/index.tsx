@@ -150,60 +150,58 @@ export default function index() {
           />
         </TouchableOpacity>
       </View>
-      <FlatList
-        horizontal
-        pagingEnabled
-        data={data}
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={cardPress}>
-            <View style={styles.ButtonContainer}>
-              <View style={styles.profileContainer}>
-                <Text style={styles.descText}>{item.description}</Text>
 
-                <Text style={styles.acctText}>{item.account}</Text>
+      <View>
+        <FlatList
+          horizontal
+          pagingEnabled
+          data={data}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={cardPress}>
+              <View style={styles.ButtonContainer}>
+                <View style={styles.profileContainer}>
+                  <Text style={styles.descText}>{item.description}</Text>
 
-                <View style={styles.WalletConnect}>
-                  <W3mButton balance="show" size="md" />
+                  <Text style={styles.acctText}>{item.account}</Text>
+
+                  <View style={styles.WalletConnect}>
+                    <W3mButton balance="show" size="md" />
+                  </View>
                 </View>
               </View>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
+            </TouchableOpacity>
+          )}
+        />
+        <FlatList
+          style={styles.ServiceslistContainer}
+          horizontal
+          pagingEnabled
+          data={CardData}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={handlePress}
+              style={styles.ServicesContainer}
+            >
+              <View style={styles.profileContainer}>
+                <Text style={styles.serviceText}>{item.description}</Text>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
 
-      <FlatList
-        style={styles.ServiceslistContainer}
-        horizontal
-        pagingEnabled
-        data={CardData}
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={handlePress}
-            style={styles.ServicesContainer}
-          >
-            <View style={styles.profileContainer}>
-              <Text style={styles.serviceText}>{item.description}</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
+        <Text style={styles.descText2}>Featured Saving Circles ⭕️</Text>
+      </View>
 
-      <Text style={styles.descText2}>Featured Saving Circles ⭕️</Text>
       <SavingCirclesList />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  circlecontainer: {
-    // flex: 1,
-    backgroundColor: "#121212",
-    marginBottom: 100,
-  },
   HeaderContainer: {
     display: "flex",
     paddingHorizontal: 10,
@@ -235,7 +233,7 @@ const styles = StyleSheet.create({
   },
   ServiceslistContainer: {
     paddingLeft: 15,
-    paddingVertical: 15,
+    // paddingVertical: 15,
   },
 
   chipimg: {
@@ -324,7 +322,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     // paddingTop: 10,
     // paddingBottom: 20,
-    paddingVertical: 20,
+    paddingVertical: 15,
     paddingLeft: 15,
   },
 

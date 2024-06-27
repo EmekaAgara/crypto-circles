@@ -49,7 +49,7 @@ const index = () => {
       />
 
       <View style={styles.textContainer}>
-        <Text style={styles.mainText}>Crypto Circless</Text>
+        <Text style={styles.mainText}>Crypto Circles</Text>
 
         {/* <SlidingTexts /> */}
 

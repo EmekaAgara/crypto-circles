@@ -34,7 +34,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
       <Image source={{ uri: item.icon }} style={styles.icon} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.amount}>${item.amount.toFixed(2)}</Text>
+        <Text style={styles.amount}>BTC {item.amount.toFixed(4)}</Text>
         <Text style={styles.date}>{item.date}</Text>
       </View>
     </TouchableOpacity>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginVertical: 6,
     marginHorizontal: 12,
-    backgroundColor: "#1e1e1e",
+    backgroundColor: "#141518",
     borderRadius: 8,
   },
   icon: {

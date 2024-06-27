@@ -16,52 +16,52 @@ import { useRouter } from "expo-router";
 const transactions = [
   {
     id: "1",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Create Crypto Circle",
+    amount: 0,
     date: "2024-06-26",
-    icon: "https://via.placeholder.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
   {
     id: "2",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Join Crypto Circle",
+    amount: 0.003,
     date: "2024-06-26",
-    icon: "https://via.placeholder.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
   {
     id: "3",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Withdrawal",
+    amount: 0.1,
     date: "2024-06-26",
-    icon: "https://via.placeholder.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
   {
     id: "4",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Top Up",
+    amount: 0.52,
     date: "2024-06-26",
-    icon: "https://via.placeholder.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
   {
     id: "5",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Send",
+    amount: 0.23,
     date: "2024-06-26",
-    icon: "https://via.placeholder.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
   {
     id: "6",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Receive",
+    amount: 0.224,
     date: "2024-06-26",
-    icon: "https://via.placeholder25.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
   {
     id: "7",
-    name: "Coffee",
-    amount: 4.99,
+    name: "Join Crypto Circle",
+    amount: 0.0202,
     date: "2024-06-26",
-    icon: "https://via.placeholder.com/40", // Replace with actual icon URL or local path
+    icon: "https://img.freepik.com/free-vector/illustration-arrow-sign_53876-2971.jpg?ga=GA1.2.805713245.1709285827&semt=ais_user",
   },
 ];
 
