@@ -101,6 +101,11 @@ export default function RootLayout() {
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="connect" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          {/* <Stack.Screen name="[circleId]" options={{ headerShown: false }} />s */}
+          {/* <Stack.Screen
+            name="TransactionDetails"
+            options={{ headerShown: false }}
+          /> */}
 
           <Stack.Screen name="+not-found" />
         </Stack>

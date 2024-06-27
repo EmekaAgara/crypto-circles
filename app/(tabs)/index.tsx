@@ -7,26 +7,18 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
-  ImageBackground,
   SafeAreaView,
 } from "react-native";
-
-import { Collapsible } from "@/components/Collapsible";
-import { ExternalLink } from "@/components/ExternalLink";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
 import { useRouter } from "expo-router";
-import cryptocurrencies from "@/assets/data/cryptocurrencies.json";
-import CoinItem from "@/components/CoinItem";
-import { W3mAccountButton, W3mButton } from "@web3modal/wagmi-react-native";
+import { W3mButton } from "@web3modal/wagmi-react-native";
+import SavingCirclesList from "@/components/SavingCirclesList";
 
 const data = [
   {
     id: "1",
     title: "$5,000,000",
-    description: "Total Cicle Savings ⭕️ ",
-    account: "0020",
+    description: "My Crypto Circles Wallet ⭕️ ",
+    account: "00000020",
     name: "John James",
     backgroundImage: require("@/assets/images/card9.png"),
     screen: "Development",
@@ -35,7 +27,7 @@ const data = [
   {
     id: "2",
     title: "$5,000,000",
-    description: "Total Savings",
+    description: "My Crypto Circles Wallet ⭕️ ",
     account: "0000 0000 0000 0000",
     name: "John James",
     backgroundImage: require("@/assets/images/card7.png"),
@@ -63,28 +55,85 @@ const CardData = [
   },
 ];
 
+type SavingCircle = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  numUsers: number;
+  profitLoss: number;
+  creationDate: string;
+  isFull: boolean;
+};
+
+const savingCircles: SavingCircle[] = [
+  {
+    id: "1",
+    title: "Circle 1",
+    description: "Description for Circle 1",
+    imageUrl: "https://via.placeholder.com/150",
+    numUsers: 10,
+    profitLoss: 5,
+    creationDate: "2023-01-01",
+    isFull: false,
+  },
+  {
+    id: "2",
+    title: "Circle 1",
+    description: "Description for Circle 1",
+    imageUrl: "https://via.placeholder.com/150",
+    numUsers: 10,
+    profitLoss: 5,
+    creationDate: "2023-01-01",
+    isFull: false,
+  },
+  {
+    id: "3",
+    title: "Circle 1",
+    description: "Description for Circle 1",
+    imageUrl: "https://via.placeholder.com/150",
+    numUsers: 10,
+    profitLoss: 5,
+    creationDate: "2023-01-01",
+    isFull: false,
+  },
+  {
+    id: "4",
+    title: "Circle 1",
+    description: "Description for Circle 1",
+    imageUrl: "https://via.placeholder.com/150",
+    numUsers: 10,
+    profitLoss: 5,
+    creationDate: "2023-01-01",
+    isFull: false,
+  },
+  {
+    id: "5",
+    title: "Circle 1",
+    description: "Description for Circle 1",
+    imageUrl: "https://via.placeholder.com/150",
+    numUsers: 10,
+    profitLoss: 5,
+    creationDate: "2023-01-01",
+    isFull: false,
+  },
+  // Add more circles as needed
+];
+
 export default function index() {
   const router = useRouter();
 
   const handlePress = () => {
-    open();
     router.push({ pathname: "(tabs)" });
 
     // navigation.navigate("SignupScreen");
   };
   const cardPress = () => {
-    open();
     router.push({ pathname: "(tabs)" });
-
-    // navigation.navigate("SignupScreen");
   };
-  const location = "Lagos";
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.WalletConnect}>
-        <W3mButton balance="show" size="md" />
-      </View>
       <View style={styles.HeaderContainer}>
         <TouchableOpacity onPress={handlePress}>
           <Text style={styles.HelloText}>Hello John</Text>
@@ -112,22 +161,18 @@ export default function index() {
             <View style={styles.ButtonContainer}>
               <View style={styles.profileContainer}>
                 <Text style={styles.descText}>{item.description}</Text>
+
                 <Text style={styles.acctText}>{item.account}</Text>
-                {/* <Text style={styles.nameText}>{item.name}</Text> */}
-                <Text style={styles.mainText}>{item.title}</Text>
-              </View>
-              <View style={styles.profileContainer}>
-                <Image
-                  source={require("@/assets/images/Chips.png")}
-                  style={styles.chipimg}
-                />
+
+                <View style={styles.WalletConnect}>
+                  <W3mButton balance="show" size="md" />
+                </View>
               </View>
             </View>
           </TouchableOpacity>
         )}
       />
 
-      {/* <Text style={styles.descText2}>Explore 🚀</Text> */}
       <FlatList
         style={styles.ServiceslistContainer}
         horizontal
@@ -147,18 +192,18 @@ export default function index() {
         )}
       />
 
-      <Text style={styles.descText2}>Recommended</Text>
-
-      {/* <FlatList
-        showsVerticalScrollIndicator={false}
-        data={cryptocurrencies}
-        renderItem={({ item }) => <CoinItem marketCoin={item} />}
-      /> */}
+      <Text style={styles.descText2}>Featured Saving Circles ⭕️</Text>
+      <SavingCirclesList />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  circlecontainer: {
+    // flex: 1,
+    backgroundColor: "#121212",
+    marginBottom: 100,
+  },
   HeaderContainer: {
     display: "flex",
     paddingHorizontal: 10,
@@ -190,6 +235,7 @@ const styles = StyleSheet.create({
   },
   ServiceslistContainer: {
     paddingLeft: 15,
+    paddingVertical: 15,
   },
 
   chipimg: {
@@ -204,12 +250,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingBottom: 20,
     paddingTop: 40,
-    // padding: 60,
+    padding: 60,
     // marginHorizontal: 10,
     paddingHorizontal: 15,
+    // flex: 1,
   },
   WalletConnect: {
-    paddingBottom: 20,
+    paddingTop: 15,
   },
   HelloText: {
     color: "white",
@@ -221,7 +268,6 @@ const styles = StyleSheet.create({
 
   cardImage: {
     marginLeft: 4,
-
     height: 70,
     width: 70,
     resizeMode: "contain",
@@ -276,22 +322,24 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "400",
     textAlign: "left",
-    paddingTop: 10,
-    paddingBottom: 20,
-    paddingLeft: 0,
+    // paddingTop: 10,
+    // paddingBottom: 20,
+    paddingVertical: 20,
+    paddingLeft: 15,
   },
 
   ButtonContainer: {
     backgroundColor: "#141518",
     flexDirection: "row",
     padding: 27,
-    marginBottom: 25,
+    marginBottom: 15,
     marginRight: 10,
     // paddingBottom: 20,
     paddingRight: 120,
-    paddingVertical: 40,
+    paddingVertical: 20,
     borderRadius: 10,
     marginLeft: 10,
+    // width: "90%",
   },
 
   CardContainer: {
@@ -306,7 +354,7 @@ const styles = StyleSheet.create({
   profileContainer: {
     flexDirection: "column",
     marginLeft: 0,
-    paddingLeft: 16,
+    paddingLeft: 10,
     justifyContent: "center",
   },
 
