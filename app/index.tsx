@@ -45,7 +45,7 @@ const index = () => {
       />
       <Image
         style={styles.logo}
-        source={require("../assets/images/react-logo.png")}
+        source={require("../assets/images/logo1.png")}
       />
 
       <View style={styles.textContainer}>
@@ -74,6 +74,7 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     // paddingHorizontal: 20,
   },
   w3mButton: {
@@ -130,8 +131,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     // marginTop: "35%",
     zIndex: 1,
-    width: "50%",
-    height: "50%",
+    width: "60%",
+    height: "60%",
     resizeMode: "contain",
   },
 });

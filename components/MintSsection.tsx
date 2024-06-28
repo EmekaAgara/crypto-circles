@@ -62,20 +62,14 @@ export default function MintSection() {
         <Text style={styles.centerText}>Join Circle</Text>
       </TouchableOpacity>
       {isLoading && <Text>Check Wallet</Text>}
-      <TouchableOpacity style={styles.button} onPress={onJoinPressed}>
-        <Text style={{ textAlign: "center", marginVertical: 10 }}>
-          Transaction:
-        </Text>
+      <TouchableOpacity style={styles.ButtonContainer2} onPress={onJoinPressed}>
+        <Text style={styles.ButtonText}>Transaction:</Text>
         {isSuccess && (
           <Text style={{ textAlign: "center" }}>
             {JSON.stringify(mintData)}
           </Text>
         )}
       </TouchableOpacity>
-      <Text style={styles.button}>Transaction:</Text>
-      {isSuccess && (
-        <Text style={{ textAlign: "center" }}>{JSON.stringify(mintData)}</Text>
-      )}
     </View>
   );
 }
@@ -102,5 +96,24 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     alignItems: "center",
+    marginBottom: 15,
+  },
+
+  ButtonText: {
+    fontSize: 14,
+    color: "#fff",
+    fontWeight: "600",
+    alignSelf: "center",
+    textTransform: "uppercase",
+  },
+
+  ButtonContainer2: {
+    backgroundColor: "#e63b60",
+    width: "100%",
+    alignSelf: "center",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center",
+    // marginTop: 10,
   },
 });

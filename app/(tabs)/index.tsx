@@ -69,57 +69,88 @@ type SavingCircle = {
 const savingCircles: SavingCircle[] = [
   {
     id: "1",
-    title: "Circle 1",
-    description: "Description for Circle 1",
-    imageUrl: "https://via.placeholder.com/150",
+    title: "Charity Givers",
+    description:
+      "Pooling resources to donate to various humanitarian causes and charities.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     numUsers: 10,
-    profitLoss: 5,
-    creationDate: "2023-01-01",
+    profitLoss: 0,
+    creationDate: "2024-06-30",
     isFull: false,
   },
   {
     id: "2",
-    title: "Circle 1",
-    description: "Description for Circle 1",
-    imageUrl: "https://via.placeholder.com/150",
-    numUsers: 10,
-    profitLoss: 5,
-    creationDate: "2023-01-01",
+    title: "Clean Water Initiative",
+    description:
+      "Collecting funds to provide clean water solutions in underdeveloped regions.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1578312488481-517acb6ebf49?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    numUsers: 8,
+    profitLoss: 0,
+    creationDate: "2024-06-25",
     isFull: false,
   },
   {
     id: "3",
-    title: "Circle 1",
-    description: "Description for Circle 1",
-    imageUrl: "https://via.placeholder.com/150",
-    numUsers: 10,
-    profitLoss: 5,
-    creationDate: "2023-01-01",
+    title: "Education Fund",
+    description: "Raising money to support education for children in need.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1596495577886-d920f42814b9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    numUsers: 15,
+    profitLoss: 0,
+    creationDate: "2024-06-20",
     isFull: false,
   },
   {
     id: "4",
-    title: "Circle 1",
-    description: "Description for Circle 1",
-    imageUrl: "https://via.placeholder.com/150",
-    numUsers: 10,
-    profitLoss: 5,
-    creationDate: "2023-01-01",
+    title: "Disaster Relief Fund",
+    description:
+      "Pooling funds to provide emergency aid in disaster-stricken areas.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1573053479359-6e8a512a1e33?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    numUsers: 12,
+    profitLoss: 0,
+    creationDate: "2024-06-15",
     isFull: false,
   },
   {
     id: "5",
-    title: "Circle 1",
-    description: "Description for Circle 1",
-    imageUrl: "https://via.placeholder.com/150",
-    numUsers: 10,
-    profitLoss: 5,
-    creationDate: "2023-01-01",
+    title: "Medical Supplies Donation",
+    description:
+      "Raising money to donate essential medical supplies to those in need.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1580281658629-5a9a5d6c9946?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    numUsers: 9,
+    profitLoss: 0,
+    creationDate: "2024-06-10",
     isFull: false,
   },
-  // Add more circles as needed
+  {
+    id: "6",
+    title: "Wildlife Conservation",
+    description:
+      "Funding efforts to protect endangered wildlife and their habitats.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1564996529984-1e3a336d1604?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    numUsers: 7,
+    profitLoss: 0,
+    creationDate: "2024-06-05",
+    isFull: false,
+  },
+  {
+    id: "7",
+    title: "Support for Homeless",
+    description:
+      "Pooling resources to provide aid and support for homeless individuals.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1542010586-d6ba4e4f60e7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    numUsers: 11,
+    profitLoss: 0,
+    creationDate: "2024-06-01",
+    isFull: false,
+  },
 ];
-
 export default function index() {
   const router = useRouter();
 
