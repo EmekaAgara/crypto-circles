@@ -23,7 +23,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 // 1. Get projectId from https://cloud.walletconnect.com
 // const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const projectId = `${process.env.PROJECT_ID}`;
+const projectId = "ecb15083d8dfecb97c3270a5ece45e35";
 
 // 2. Create config
 const metadata = {
