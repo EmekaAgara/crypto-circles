@@ -62,9 +62,17 @@ export default function MintSection() {
         <Text style={styles.centerText}>Join Circle</Text>
       </TouchableOpacity>
       {isLoading && <Text>Check Wallet</Text>}
-      <TextInput style={{ textAlign: "center", marginVertical: 10 }}>
-        Transaction:
-      </TextInput>
+      <TouchableOpacity style={styles.button} onPress={onJoinPressed}>
+        <Text style={{ textAlign: "center", marginVertical: 10 }}>
+          Transaction:
+        </Text>
+        {isSuccess && (
+          <Text style={{ textAlign: "center" }}>
+            {JSON.stringify(mintData)}
+          </Text>
+        )}
+      </TouchableOpacity>
+      <Text style={styles.button}>Transaction:</Text>
       {isSuccess && (
         <Text style={{ textAlign: "center" }}>{JSON.stringify(mintData)}</Text>
       )}

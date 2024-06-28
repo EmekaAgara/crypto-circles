@@ -188,7 +188,7 @@ export default function Transactions() {
     <SafeAreaView style={styles.container}>
       <View style={styles.HeaderContainer}>
         <TouchableOpacity onPress={handlePress}>
-          <Text style={styles.HelloText}>Hello John</Text>
+          <Text style={styles.HelloText}>Hello There 👋</Text>
           <Text style={styles.descText1}>
             Explore crypto saving circles ⭕️
           </Text>

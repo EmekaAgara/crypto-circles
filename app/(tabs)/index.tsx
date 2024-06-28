@@ -136,7 +136,7 @@ export default function index() {
     <SafeAreaView style={styles.container}>
       <View style={styles.HeaderContainer}>
         <TouchableOpacity onPress={handlePress}>
-          <Text style={styles.HelloText}>Hello John</Text>
+          <Text style={styles.HelloText}>Hello There 👋</Text>
           <Text style={styles.descText1}>
             Explore crypto saving circles ⭕️
           </Text>
@@ -207,6 +207,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingTop: 20,
   },
 
   FlatList: {
@@ -247,8 +248,9 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     justifyContent: "center",
     paddingBottom: 20,
-    paddingTop: 40,
+    paddingTop: 50,
     padding: 60,
+    // marginTop: 30,
     // marginHorizontal: 10,
     paddingHorizontal: 15,
     // flex: 1,
@@ -337,7 +339,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderRadius: 10,
     marginLeft: 10,
-    // width: "90%",
+    width: "91%",
   },
 
   CardContainer: {
