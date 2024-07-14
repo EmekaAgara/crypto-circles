@@ -15,12 +15,20 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@dfinity/agent": "^1.4.0",
+    "@dfinity/bls-verify": "file:dfinity-bls-verify-0.20.2.tgz",
+    "@dfinity/candid": "^1.4.0",
+    "@dfinity/identity": "^1.4.0",
+    "@dfinity/principal": "^1.4.0",
     "@expo/vector-icons": "^14.0.0",
-    "@react-native-async-storage/async-storage": "1.23.1",
+    "@noble/curves": "^1.4.2",
+    "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-community/netinfo": "11.3.1",
     "@react-navigation/native": "^6.0.2",
     "@walletconnect/react-native-compat": "^2.13.3",
     "@web3modal/wagmi-react-native": "^1.4.1",
+    "amcl-js": "^3.1.0",
+    "buffer": "^6.0.3",
     "expo": "^51.0.16",
     "expo-application": "~5.9.1",
     "expo-av": "~14.0.6",
@@ -44,8 +52,13 @@
     "react-native-svg": "15.2.0",
     "react-native-web": "~0.19.10",
     "react-text-transition": "^3.1.0",
+    "undefined": "^0.1.0",
     "viem": "1.21.4",
-    "wagmi": "1.4.13"
+    "wagmi": "1.4.13",
+    "react-native-extended-stylesheet": "^0.12.0",
+    "react-native-polyfill-globals": "^3.1.0",
+    "text-encoding": "^0.7.0",
+    "expo-secure-store": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

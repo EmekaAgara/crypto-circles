@@ -9,7 +9,7 @@ import {
   FlatList,
   SafeAreaView,
 } from "react-native";
-import { useRouter } from "expo-router";
+import { Slot, useRouter } from "expo-router";
 import { W3mButton } from "@web3modal/wagmi-react-native";
 import SavingCirclesList from "@/components/SavingCirclesList";
 

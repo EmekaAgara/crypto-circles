@@ -16,6 +16,7 @@ import { Link, Slot, useNavigation, useRouter } from "expo-router";
 // import { useRouter } from 'your-router-hook'; // Replace with the actual import
 import { useFocusEffect } from "@react-navigation/native";
 import { useWeb3Modal } from "@web3modal/wagmi-react-native";
+import Icp from "@/components/Icp";
 
 const { height: deviceHeight } = Dimensions.get("window");
 
@@ -54,16 +55,11 @@ const index = () => {
         {/* <SlidingTexts /> */}
 
         <SlidingTexts />
-        {/* <W3mButton balance="show" /> */}
-        {/* <TouchableOpacity onPress={() => open()} style={styles.ButtonContainer}> */}
-        <TouchableOpacity
-          onPress={onConnectPressed}
-          style={styles.ButtonContainer}
-        >
-          <Text style={styles.ButtonText}>Get Started</Text>
-        </TouchableOpacity>
+
+        <Icp />
+
         <Text style={styles.subText}>
-          Group saving circles with friedns and family, made easy with crypto
+          Group saving circles with friends and family, made easy with crypto
           currency on Ccircles app
         </Text>
       </View>
@@ -74,7 +70,6 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     // paddingHorizontal: 20,
   },
   w3mButton: {
